@@ -25,6 +25,13 @@ steps:
     SourceFolder: '$(Build.SourcesDirectory)/build'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+- task: ArchiveFiles@2
+  displayName: 'zip build files'
+  inputs:
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'  # Path where your build files are copied
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/build.zip'
 - task: PublishBuildArtifacts@1
   displayName: 'publish build artifacts'
   inputs:
@@ -38,5 +45,5 @@ steps:
     azureSubscription: 'ME-MngEnvMCAP354542-v-yakande-1(747efc6a-44cf-47ba-a3f6-ecf6fa22cbc4)'
     appType: 'webAppLinux'
     WebAppName: 'kalonWebApp'
-    packageForLinux: '$(Build.ArtifactStagingDirectory)/drop.zip'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/build.zip'
     RuntimeStack: 'STATICSITE|1.0'
