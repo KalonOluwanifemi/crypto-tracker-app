@@ -38,5 +38,5 @@ steps:
     azureSubscription: 'ME-MngEnvMCAP354542-v-yakande-1(747efc6a-44cf-47ba-a3f6-ecf6fa22cbc4)'
     appType: 'webAppLinux'
     WebAppName: 'kalonWebApp'
-    packageForLinux: '$(Build.ArtifactStagingDirectory)/build.zip'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/drop.zip'
     RuntimeStack: 'STATICSITE|1.0'
